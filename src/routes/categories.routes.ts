@@ -6,6 +6,7 @@ const categoriesRoutes = Router();
 
 const categories: Category[] = [];
 
+// CREATE CATEGORY - POST
 categoriesRoutes.post("/", (req, res) => {
   const { name, description } = req.body;
 
@@ -20,6 +21,11 @@ categoriesRoutes.post("/", (req, res) => {
   categories.push(category); // Push the instance, not the class
 
   return res.status(201).json({ category });
+});
+
+// CONSULTA CATEGORIES - GET
+categoriesRoutes.get("/", (req, res) => {
+  return res.status(200).json({ categories });
 });
 
 export { categoriesRoutes };
